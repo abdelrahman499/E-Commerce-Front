@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Category Products</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light py-4">
+
+<div class="container">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 id="categoryTitle"></h2>
+    <button id="createProductBtn" class="btn btn-success">
+        <i class="bi bi-plus-lg"></i> Create Product
+    </button>
+</div>
+<div id="productsContainer" class="row"></div>
+
+</div>
+
+<script>
+  // Get category name from URL
+  const params = new URLSearchParams(window.location.search);
+  const categoryName = params.get("name");
+
+  // Get ecommerce data
+  const data = JSON.parse(localStorage.getItem("ecommerceData")) || { products: [] };
+  const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser")) || { role: "customer", id: null };
+
+  // Filter products by category
+  const products = data.products.filter(p => p.category === categoryName);
+
+  document.getElementById("categoryTitle").textContent = `Products in ${categoryName}`;
+
+  const container = document.getElementById("productsContainer");
+
+  if (products.length === 0) {
+    container.innerHTML = "<p>No products found in this category.</p>";
+  } else {
+    products.forEach(p => {
+      let actionButtons = "";
+
+      // If Admin -> can edit/delete all products
+      // If Seller -> can edit/delete only his own products
+      if (
+        loggedInUser.role === "admin" ||
+        (loggedInUser.role === "seller" && p.sellerId === loggedInUser.id)
+      ) {
+        actionButtons = `
+          <div class="mt-2">
+            <button class="btn btn-warning btn-sm me-1" onclick="editProduct(${p.id})">Edit</button>
+            <button class="btn btn-danger btn-sm" onclick="deleteProduct(${p.id})">Delete</button>
+          </div>
+        `;
+      }
+
+      container.innerHTML += `
+        <div class="col-md-3 mb-4">
+          <div class="card h-100">
+            <img src="${p.imageUrl}" class="card-img-top" alt="${p.name}">
+            <div class="card-body">
+              <h5 class="card-title">${p.name}</h5>
+              <p class="card-text">$${p.price}</p>
+              ${actionButtons}
+            </div>
+          </div>
+        </div>
+      `;
+    });
+  }
+
+
+  function editProduct(productId) {
+    window.location.href = `Edit.html?id=${productId}`;
+  }
+
+
+
+const createBtn = document.getElementById("createProductBtn");
+if (!loggedInUser || (loggedInUser.role !== "admin" && loggedInUser.role !== "seller")) {
+    createBtn.style.display = "none";
+}
+
+
+createBtn.addEventListener("click", () => {
+    window.location.href = "Create.html";
+});
+
+
+  function deleteProduct(productId) {
+    if (!confirm("Are you sure you want to delete this product?")) return;
+
+    const updatedProducts = data.products.filter(p => p.id !== productId);
+    data.products = updatedProducts;
+    localStorage.setItem("ecommerceData", JSON.stringify(data));
+    alert("Product deleted successfully!");
+    location.reload();
+  }
+</script>
+
+
+</body>
+</html>

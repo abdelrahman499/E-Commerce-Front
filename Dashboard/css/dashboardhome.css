@@ -1,0 +1,49 @@
+.card-stat {
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-stat:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Gradient backgrounds */
+.bg-gradient-primary {
+    background: linear-gradient(135deg, #4e73df, #224abe);
+}
+
+.bg-gradient-info {
+    background: linear-gradient(135deg, #36b9cc, #117a8b);
+}
+
+.bg-gradient-success {
+    background: linear-gradient(135deg, #1cc88a, #13855c);
+}
+
+.bg-gradient-warning {
+    background: linear-gradient(135deg, #f6c23e, #dda20a);
+}
+
+.bg-gradient-secondary {
+    background: linear-gradient(135deg, #858796, #343a40);
+}
+.badge {
+    font-size: 0.75rem;
+    padding: 0.4em 0.6em;
+    border-radius: 0.5rem;
+}
+.card {
+    border-radius: 1rem;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.card-header {
+    font-weight: 600;
+    background: linear-gradient(135deg, #4e73df, #224abe);
+    color: white;
+    border-top-left-radius: 1rem !important;
+    border-top-right-radius: 1rem !important;
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+
+    <link rel="stylesheet" href="../css/cart.css">
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <div class="logo">MyShop</div>
+            <div class="cart">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="badge"> </span> <!--  TODO team-->
+                <!-- this div will be in the [i tag ] which represent the cart itself               //TODO team-->
+
+                <div class="cartsProducts ">
+                    <div class="cartsProductsContent">
+                        <!-- TODO team  -->
+                        <!-- .cartsProductsContent p {}     give it a sutable style  -->
+
+                    </div>
+
+                    <a href="cartProducts.html">View All Products</a>
+                </div>
+
+            </div>
+        </header>
+
+
+
+
+        <!-- <div class="breadcrumb">
+            <a href="#">Home</a> / Cart
+        </div> -->
+
+        <div class="cart-content">
+            <div class="cart-header">
+                <div>Product</div>
+                <div>Price</div>
+                <div>Quantity</div>
+                <div>Subtotal</div>
+                <div>Remove</div>
+            </div>
+
+            <div class="productsInCart">
+
+                <!-- from js -->
+
+
+
+
+
+            </div>
+            <div class="noProducts"></div>
+
+            <div class="cart-actions">
+
+                <a href="index.html" class="btn btn-outline" style="text-decoration: none;">Return To Shop</a>
+                <button class="btn btn-outline update-cart">Update Cart</button> <!--TODO team-->
+            </div>
+
+            <div class="bottom-section">
+                <div class="coupon-section">
+                    <div class="coupon-input-group">
+                        <input type="text" class="coupon-input" placeholder="Coupon Code">
+                        <button class="coupon-btn">Apply Coupon</button>
+                    </div>
+                </div>
+
+                <div class="cart-summary">
+                    <div class="summary-title">Cart Total</div>
+                    <div class="summary-row">
+                        <span>Subtotal:</span>
+                        <span id="subtotal-amount">$1750</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Shipping:</span>
+                        <span>Free</span>
+                    </div>
+                    <div class="summary-total">
+                        <span>Total:</span>
+                        <span id="total-amount">$1750</span>
+                    </div>
+                    <a href="checkout.html" style="text-decoration: none;" class="checkout-btn">Proceed to checkout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- the order is  very imp -->
+    <!-- <script src="js/user.js"></script>          TODO  -->
+    <!-- <script src="js/ecommerceData.js"></script> -->
+    <!-- <script src="../js/main.js"></script> -->
+    <script src="../js/cartProduct.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+:root {
+  --animate-duration: 0.5s;
+}
+
+body {
+  background-color: #f5f5f5;
+  overflow-x: hidden;
+}
+
+.contact-card {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.icon-circle {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: #dc3545;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.form-control::placeholder {
+  color: #bbb;
+}
+
+.form-control {
+  background-color: #f8f9fa;
+  border: 1px solid #e2e2e2;
+}
+
+.breadcrumb-container {
+  margin-top: 60px;
+  margin-bottom: 40px;
+}
+
+.toast-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
+.btn:focus {
+  box-shadow: none !important;
+}

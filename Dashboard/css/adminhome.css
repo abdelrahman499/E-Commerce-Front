@@ -1,0 +1,15 @@
+.w-75 {
+    width: 85% !important;
+}
+@media (min-width: 992px) and (max-width: 1775px) {
+    .ps-md-5 {
+        padding-left: 6rem !important;
+    }
+}
+@media (max-width: 991px) {
+    .ps-md-5 {
+        padding-left: 0 !important;
+        width: 100%;
+        margin-left: 3rem !important;
+    }
+}

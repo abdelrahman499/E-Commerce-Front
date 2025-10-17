@@ -1,0 +1,47 @@
+.contact{
+    margin: 5rem 0;
+}
+.contact aside div{
+    width:90%
+}
+.contact aside div.call{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.502) !important;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+.contact aside div h2{
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+.contact form, .contact aside{
+    box-shadow: #fafafa 1px 1px 10px 5px;
+    padding: 40px;
+}
+.contact form input, .contact form textarea{
+    background: #f5f5f5;
+        border: none;
+        padding: 10px;
+        margin: 10px 0; 
+}
+.contact form textarea{
+    height: 200px;
+}
+.contact form input[type=submit]{
+    background-color: #DB4444;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    border-radius: 5px;
+}
+@media (min-width: 768px) {
+    .col-md-3 {
+        width: 32.5%;
+    }
+        .contact form textarea{
+            margin: 20px 0;
+        }
+}
+.navbar{
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+}

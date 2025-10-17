@@ -1,0 +1,46 @@
+body {
+    background-color: #fff;
+}
+
+.sidebar a {
+    display: block;
+    padding: 8px 0;
+    color: #000;
+    text-decoration: none;
+}
+
+.nav-pills .nav-link.active {
+    color: red !important;
+    background: none !important;
+    
+}
+.nav-pills .nav-link{
+    text-indent: 25px;
+    --bs-text-opacity: 1;
+        color: var(--bs-secondary-color) !important;
+}
+.tab-pane>div {
+    padding: 60px;
+}
+.form-control{
+    background-color: #F5F5F5 !important;
+    padding: 15px;
+    color: var(--bs-secondary-color);
+}
+.profile-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-save {
+    background-color: #ff4d4d;
+    color: #fff;
+    padding: 15px;
+    margin-right: 10px;
+}
+
+.btn-save:hover {
+    background-color: #e04343;
+}

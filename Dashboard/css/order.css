@@ -1,0 +1,33 @@
+body {
+      background-color: #f0f2f5;
+      font-family: Arial, sans-serif;
+    }
+    .card {
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border: none;
+    }
+    .status {
+      padding: 0.25rem 0.75rem;
+      border-radius: 8px;
+      font-weight: 500;
+      color: #fff;
+      font-size: 0.875rem;
+    }
+    .Pending { background-color: #ffc107; }
+    .Shipped { background-color: #7f8c8d; }
+    .Delivered { background-color: #2ecc71; }
+    .Cancelled { background-color: #dc3545; }
+    .Processing { background-color: #3498db; }
+    .OnHold { background-color: #9b59b6; }
+
+    .action-btn {
+      padding: 5px 10px;
+      border-radius: 5px;
+      border: none;
+      color: white;
+      cursor: pointer;
+      margin-right: 5px;
+    }
+    .edit-btn { background: #3498db !important; }
+    .delete-btn { background: #e74c3c !important; }

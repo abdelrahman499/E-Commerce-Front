@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishlist</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container py-5">
+
+
+        <div class="section-header">
+            <h2 class="section-title">Wishlist</h2>
+            <button class="move-all-btn ">Move All To Bag</button>
+        </div>
+        <div class="row" id="wishlist-container"></div>
+
+
+        <div class="section-header mt-5">
+            <h2 class="section-title">Just For You</h2>
+            <a href="#" class="see-all-btn">See All</a>
+        </div>
+        <div class="row" id="justforyou-container"></div>
+
+    </div>
+    <script src="../js/initData.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+         let WishlistProducts = JSON.parse(localStorage.getItem("wishListProducts"));
+        //  [
+        //     {id:1 ,imgSrc: "bag.png", title: "Wishlist Item 1", price: 222, sale: "-30%" },
+        //     {id:2 ,imgSrc: "bag.png", title: "Wishlist Item 2", price: 199 },
+        //     {id:3 ,imgSrc: "bag.png", title: "Wishlist Item 3", price: 150 },
+        //     {id:4 ,imgSrc: "bag.png", title: "Wishlist Item 4", price: 299 },
+        //     // { imgSrc: "bag.png", title: "Wishlist Item 5", price: 99, sale: "-50%" },
+        //     // { imgSrc: "bag.png", title: "Wishlist Item 6", price: 180 },
+        //     // { imgSrc: "bag.png", title: "Wishlist Item 5", price: 99, sale: "-50%" },
+        //     // { imgSrc: "bag.png", title: "Wishlist Item 6", price: 180 }
+        // ];
+
+        const justForYouProducts = [
+            { imgSrc: "../assets/bag.png", title: "New Arrival 1", price: 222, sale: "-30%" },
+            { imgSrc: "../assets/bag.png", title: "New Arrival 2", price: 199 },
+            { imgSrc: "../assets/bag.png", title: "New Arrival 3", price: 150, sale: "NEW" },
+            { imgSrc: "../assets/bag.png", title: "New Arrival 4", price: 299 },
+            // { imgSrc: "bag.png", title: "New Arrival 5", price: 99 },
+            // { imgSrc: "bag.png", title: "New Arrival 6", price: 180 }
+        ];
+        function renderProducts(containerId, products, type = "wishlist") {
+            const container = document.getElementById(containerId);
+            container.innerHTML="";
+            for (let i = 0; i < products.length; i++) {
+                const p = products[i];
+                container.innerHTML += `
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="product-card">
+                            <div class="product-image">
+                                ${p.sale ? `<span class="sale-badge">${p.sale}</span>` : ""}
+                                <button class="${type === 'wishlist' ? 'wishlist-btn ' : 'd-none'}" onclick="deleteItem(${i})">
+                                    <i class="fas ${type === 'wishlist' ? 'fa-xmark' : 'fa-magnifying-glass'}"></i>
+                                </button>
+                                <button class=" view-btn" onclick="goToProductDetails(${i})">
+                                    <i class="fas  fa-magnifying-glass"></i>
+                                    
+                                </button>
+                                <img src="${p.imgSrc}" alt="${p.title}">
+                            </div>
+                            <div class="product-info">
+                                <h5 class="product-title">${p.title}</h5>
+                                <div class="product-price">
+                                    <span class="current-price">$${p.price}</span>
+                                </div>
+                                <button class="add-to-cart">
+                                    <i class="fas fa-shopping-cart me-2"></i>
+                                    Add To Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+        renderProducts("wishlist-container", WishlistProducts, "wishlist");
+        renderProducts("justforyou-container", justForYouProducts, "justforyou");
+        function deleteItem(index){
+            WishlistProducts=WishlistProducts.filter(
+                element=> element.id!=WishlistProducts[index].id 
+            );
+            localStorage.setItem("wishListProducts",JSON.stringify(WishlistProducts))
+
+            renderProducts("wishlist-container", WishlistProducts, "wishlist");
+        };
+        function goToProductDetails(index){
+        window.location.href='test.html';
+        };
+
+    </script>
+</body>
+</html>
